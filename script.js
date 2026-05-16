@@ -2,12 +2,12 @@
 const carros = [
     // ------------------ POPULARES ------------------
     { id: 1, nome: "VW Fusca", categoria: "Populares", preco: 50000, minima: 30000 },
-    { id: 39, nome: "Chevrolet Opala", categoria: "Populares", preco: 0, minima: 0 },
-    { id: 40, nome: "VW Gol", categoria: "Populares", preco: 0, minima: 0 },
-    { id: 41, nome: "VW Saveiro", categoria: "Populares", preco: 0, minima: 0 },
-    { id: 42, nome: "Toyota Corolla Hybrid", categoria: "Populares", preco: 0, minima: 0 },
-    { id: 43, nome: "Golf GTI", categoria: "Populares", preco: 0, minima: 0 },
-    { id: 44, nome: "Volvo xc90", categoria: "Populares", preco: 0, minima: 0 },
+    { id: 39, nome: "Chevrolet Opala", categoria: "Populares", preco: 100000, minima: 80000 },
+    { id: 40, nome: "VW Gol", categoria: "Populares", preco: 150000, minima: 100000 },
+    { id: 41, nome: "VW Saveiro", categoria: "Populares", preco: 1200000, minima: 1000000 },
+    { id: 42, nome: "Toyota Corolla Hybrid", categoria: "Populares", preco: 1000000, minima: 800000 },
+    { id: 43, nome: "Golf GTI", categoria: "Populares", preco: 1200000, minima: 1000000 },
+    { id: 44, nome: "Volvo XC90", categoria: "Populares", preco: 2500000, minima: 2000000 },
 
     // ------------------ ESPORTIVOS ------------------
     { id: 2, nome: "Civic Type-R", categoria: "Esportivos", preco: 6000000, minima: 5000000 },
@@ -21,10 +21,10 @@ const carros = [
     { id: 10, nome: "Mazda RX7", categoria: "Esportivos", preco: 8000000, minima: 6000000 },
     { id: 11, nome: "Silvia S15", categoria: "Esportivos", preco: 13000000, minima: 10000000 },
     { id: 12, nome: "Skyline R34", categoria: "Esportivos", preco: 13000000, minima: 10000000 },
-    { id: 45, nome: "BMW X6", categoria: "Esportivos", preco: 0, minima: 0 },
-    { id: 46, nome: "BMW i8", categoria: "Esportivos", preco: 0, minima: 0 },
-    { id: 47, nome: "Nissan GTR-R35", categoria: "Esportivos", preco: 0, minima: 0 },
-    { id: 48, nome: "Lamborghini Huracan", categoria: "Esportivos", preco: 0, minima: 0 },
+    { id: 45, nome: "BMW X6", categoria: "Esportivos", preco: 4000000, minima: 3000000 },
+    { id: 46, nome: "BMW i8", categoria: "Esportivos", preco: 5000000, minima: 4500000 },
+    { id: 47, nome: "Nissan GTR-R35", categoria: "Esportivos", preco: 10000000, minima: 8000000 },
+    { id: 48, nome: "Lamborghini Huracan", categoria: "Esportivos", preco: 10000000, minima: 8000000 },
 
     // ------------------ MOTOS ------------------
     { id: 30, nome: "BMW R1250", categoria: "Motos", preco: 14000000, minima: 13000000 },
