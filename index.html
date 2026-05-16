@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPier | Revendedora Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">AutoPier <span class="premium">Revendedora Premium</span></div>
+        <p>Seu veículo exclusivo está aqui. Faça sua proposta e saia dirigindo.</p>
+    </header>
+
+    <main class="container">
+        <section class="categorias">
+            <button onclick="filtrar('Todos')" class="btn-cat ativo">Todos</button>
+            <button onclick="filtrar('Populares')" class="btn-cat">Populares</button>
+            <button onclick="filtrar('Esportivos')" class="btn-cat">Esportivos</button>
+            <button onclick="filtrar('Motos')" class="btn-cat">Motos</button>
+            <button onclick="filtrar('Super')" class="btn-cat">Super</button>
+            <button onclick="filtrar('Utilitários')" class="btn-cat">Utilitários</button>
+            <button onclick="filtrar('SUVs')" class="btn-cat">SUVs</button>
+            <button onclick="filtrar('Helicópteros')" class="btn-cat">Helicópteros</button>
+        </section>
+
+        <section class="vitrine" id="vitrine-carros">
+            </section>
+    </main>
+
+    <div id="modal-proposta" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <h3>Negociar Veículo</h3>
+            <p id="modal-carro-nome">Carro: </p>
+            <p id="modal-carro-preco">Preço de Tabela: </p>
+            
+            <form id="form-proposta" onsubmit="enviarProposta(event)">
+                <input type="text" id="nome-jogador" placeholder="Seu Nome ou Passaporte/ID" required>
+                <input type="number" id="valor-proposta" placeholder="Digite o valor da sua proposta ($)" required>
+                <button type="submit" class="btn-enviar">Enviar Proposta ao Gerente</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

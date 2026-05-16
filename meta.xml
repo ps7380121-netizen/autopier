@@ -1,0 +1,8 @@
+<meta>
+    <info author="AutoPier" type="script" version="1.0.0" />
+
+    <!-- Scripts do Sistema -->
+    <script src="config_veiculos.lua" type="shared" />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+</meta>
