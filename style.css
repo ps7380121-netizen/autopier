@@ -1,226 +1,118 @@
-body {
+/* ---- ESTILO AUTO-PIER: INDUSTRIAL PREMIUM ---- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500;600;700&display=swap');
+
+* {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f0f11;
-    color: #e1e1e6;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(180deg, #161619 0%, #0f0f11 100%);
-    border-bottom: 2px solid #dfb14e; /* Linha Dourada Premium */
+body {
+    /* Fundo escuro texturizado simulando fibra de carbono com reflexo metálico */
+    background: 
+        radial-gradient(circle at top, rgba(20, 30, 40, 0.6) 0%, rgba(10, 10, 12, 0.95) 70%),
+        linear-gradient(45deg, #111 25%, #000 25%, #000 50%, #111 50%, #111 75%, #000 75%, #000 100%);
+    background-size: auto, 8px 8px; /* Padrão de microfibra de carbono */
+    color: #e5e5ea;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 60px;
 }
-
-.logo {
-    font-size: 2.6rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.logo .premium {
-    color: #dfb14e; /* Dourado */
-    font-size: 1.8rem;
-    display: block;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-top: 5px;
-}
-
-header p {
-    color: #a8a8b3;
-    font-size: 1rem;
-    margin-top: 15px;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 0 20px;
 }
 
-.categorias {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.btn-cat {
-    background-color: #1a1a1e;
-    border: 1px solid #29292e;
-    color: #a8a8b3;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: 0.2s ease-in-out;
-}
-
-.btn-cat.ativo, .btn-cat:hover {
-    background-color: #dfb14e;
-    color: #0f0f11;
-    border-color: #dfb14e;
-}
-
-.vitrine {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card-carro {
-    background-color: #1a1a1e;
-    border-radius: 8px;
-    padding: 25px;
-    border: 1px solid #232329;
+/* ---- TOPO / HEADER (Visual de Placa de Metal Escovado) ---- */
+header {
     text-align: center;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #dcdcdc 0%, #999999 100%);
+    border-bottom: 4px solid #00f0ff; /* Linha de neon ciano */
+    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.15), inset 0 -2px 5px rgba(0,0,0,0.3);
+    margin-bottom: 40px;
+    position: relative;
 }
 
-.card-carro:hover {
-    transform: translateY(-5px);
-    border-color: #dfb14e;
+/* Para simular os rebites/parafusos mecânicos nas pontas do painel superior */
+header::before, header::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    width: 8px;
+    height: 8px;
+    background: #444;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px #000, 1px 1px 1px #fff;
 }
+header::before { left: 20px; }
+header::after { right: 20px; }
 
-.card-carro h3 {
-    margin: 10px 0 5px 0;
-    font-size: 1.4rem;
-}
-
-.categoria-tag {
-    font-size: 0.75rem;
-    color: #dfb14e;
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1c23; /* Texto escuro para contrastar no metal */
     text-transform: uppercase;
-    font-weight: bold;
+    letter-spacing: -1px;
+    display: inline-block;
+}
+
+.logo .premium {
+    font-family: 'Rajdhani', sans-serif;
+    display: block;
+    font-size: 1rem;
+    color: #111;
+    letter-spacing: 5px;
+    font-weight: 700;
+    margin-top: -5px;
+    opacity: 0.8;
+}
+
+header p {
+    color: #222;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10px;
     letter-spacing: 1px;
 }
 
-.preco {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #04d361;
-    margin: 20px 0;
-}
-
-.btn-proposta {
-    background-color: transparent;
-    color: #dfb14e;
-    border: 1px solid #dfb14e;
-    padding: 12px;
-    width: 100%;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.btn-proposta:hover {
-    background-color: #dfb14e;
-    color: #0f0f11;
-}
-
-/* Modal / Pop-up */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-conteudo {
-    background-color: #1a1a1e;
-    padding: 35px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    border: 1px solid #dfb14e;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.fechar {
-    position: absolute;
-    top: 10px; right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #a8a8b3;
-}
-
-.fechar:hover {
-    color: white;
-}
-
-.modal h3 {
-    margin-top: 0;
-    color: #dfb14e;
-}
-
-input {
-    width: 100%;
-    padding: 14px;
-    margin: 12px 0;
-    box-sizing: border-box;
-    background-color: #0f0f11;
-    border: 1px solid #29292e;
-    color: white;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-
-input:focus {
-    outline: none;
-    border-color: #dfb14e;
-}
-
-.btn-enviar {
-    background-color: #04d361;
-    color: white;
-    border: none;
-    padding: 14px;
-    width: 100%;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: 0.2s;
-}
-
-.btn-enviar:hover {
-    background-color: #03b854;
-}
-/* ---- MELHORIAS VISUAIS EXTRAS (AUTOPIER COMPLETO) ---- */
-
+/* ---- CONTROLES: BUSCA E ORDENAÇÃO ---- */
 .controles-busca {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
+    background: #14161d;
+    padding: 20px;
+    border: 2px solid #222530;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
 }
 
 #campo-busca {
     flex: 1;
     min-width: 280px;
-    padding: 12px 18px;
-    background-color: #1e1e24;
-    border: 1px solid #2e2e38;
-    border-radius: 6px;
+    padding: 14px 20px;
+    background-color: #0b0c10;
+    border: 1px solid #33384a;
+    border-radius: 4px;
     color: #fff;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
     outline: none;
-    transition: border 0.3s;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 }
 
 #campo-busca:focus {
-    border-color: #dfb14e;
+    border-color: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
 .filtros-preco {
@@ -229,38 +121,270 @@ input:focus {
 }
 
 .btn-ordem {
-    background-color: #1e1e24;
-    border: 1px solid #2e2e38;
-    color: #a8a8b3;
-    padding: 10px 15px;
-    border-radius: 6px;
+    background: linear-gradient(180deg, #252836 0%, #181a24 100%);
+    border: 1px solid #33384a;
+    border-radius: 4px;
+    color: #a3a7b8;
+    padding: 12px 20px;
     cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-size: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 }
 
 .btn-ordem:hover {
-    border-color: #dfb14e;
+    border-color: #00f0ff;
+    color: #ffffff;
+    background: #1c1e29;
+}
+
+/* ---- BOTÕES DE CATEGORIAS (Estilo Dispositivos Digitais) ---- */
+.categorias {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+    scrollbar-width: thin;
+}
+
+.categorias::-webkit-scrollbar {
+    height: 4px;
+}
+
+.categorias::-webkit-scrollbar-thumb {
+    background: #00f0ff;
+    border-radius: 2px;
+}
+
+.btn-cat {
+    background: linear-gradient(180deg, #1c1e26 0%, #0f1015 100%);
+    border: 1px solid #2d3142;
+    border-radius: 4px;
+    color: #8e94a6;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.btn-cat:hover {
     color: #fff;
-    background-color: #25252e;
+    border-color: #00f0ff;
 }
 
-/* Efeito Glow Dourado para Categorias Super e Helicópteros */
-.premium-glow {
+.btn-cat.ativo {
+    background: linear-gradient(180deg, #00f0ff 0%, #00a8b5 100%);
+    color: #000000;
+    border-color: #00f0ff;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+/* ---- VITRINE / GRID DE CARROS ---- */
+.vitrine {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* ---- CARD DO CARRO ---- */
+.card-carro {
+    background: #14161d;
+    border: 2px solid #222530;
+    border-radius: 4px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
-    border: 1px solid rgba(223, 177, 78, 0.4) !important;
-    box-shadow: 0 0 12px rgba(223, 177, 78, 0.15);
-    animation: glowPulse 3s infinite alternate;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes glowPulse {
-    0% {
-        box-shadow: 0 0 8px rgba(223, 177, 78, 0.1);
-        border-color: rgba(223, 177, 78, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 16px rgba(223, 177, 78, 0.3);
-        border-color: rgba(223, 177, 78, 0.6);
-    }
+.card-carro:hover {
+    border-color: #00f0ff;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.card-carro h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.card-carro .preco {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00f0ff; /* Preço brilha em Ciano */
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.categoria-tag {
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    background: #0b0c10;
+    color: #8e94a6;
+    border: 1px solid #222530;
+    border-radius: 2px;
+}
+
+/* ---- BOTÃO FAZER PROPOSTA (Estilo Painel Eletrônico) ---- */
+.btn-proposta {
+    width: 100%;
+    background: linear-gradient(180deg, #252836 0%, #14161d 100%);
+    color: #00f0ff;
+    border: 1px solid #00f0ff;
+    border-radius: 4px;
+    padding: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px rgba(0, 240, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.card-carro:hover .btn-proposta {
+    background: linear-gradient(180deg, #00f0ff 0%, #00a8b5 100%);
+    color: #000000;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+/* ---- BORDAS DE CORES ESPECIAIS (Super, Importados e Helicópteros) ---- */
+.premium-glow {
+    border-left: 4px solid #00f0ff !important;
+}
+
+.premium-glow .categoria-tag {
+    background: rgba(0, 240, 255, 0.1);
+    color: #00f0ff;
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* ---- JANELA POP-UP (MODAL) ---- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+    background-color: #14161d;
+    border: 2px solid #00f0ff;
+    border-radius: 4px;
+    padding: 40px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
+}
+
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.fechar:hover {
+    color: #00f0ff;
+}
+
+.modal-conteudo h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    border-bottom: 1px solid #222530;
+    padding-bottom: 10px;
+}
+
+.modal-conteudo p {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#modal-carro-nome {
+    color: #ffffff;
+}
+
+#modal-carro-preco {
+    color: #00f0ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* FORMULÁRIO DO POP-UP */
+.modal-conteudo input, .modal-conteudo select {
+    width: 100%;
+    padding: 14px;
+    background-color: #0b0c10;
+    border: 1px solid #222530;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.modal-conteudo input:focus, .modal-conteudo select:focus {
+    border-color: #00f0ff;
+}
+
+.btn-enviar {
+    width: 100%;
+    background: linear-gradient(180deg, #00f0ff 0%, #00a8b5 100%);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    padding: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    transition: background 0.2s;
+}
+
+.btn-enviar:hover {
+    background: linear-gradient(180deg, #33f4ff 0%, #00c2d1 100%);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.5);
 }
