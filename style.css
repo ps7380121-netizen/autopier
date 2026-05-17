@@ -195,3 +195,72 @@ input:focus {
 .btn-enviar:hover {
     background-color: #03b854;
 }
+/* ---- MELHORIAS VISUAIS EXTRAS (AUTOPIER COMPLETO) ---- */
+
+.controles-busca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+#campo-busca {
+    flex: 1;
+    min-width: 280px;
+    padding: 12px 18px;
+    background-color: #1e1e24;
+    border: 1px solid #2e2e38;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#campo-busca:focus {
+    border-color: #dfb14e;
+}
+
+.filtros-preco {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-ordem {
+    background-color: #1e1e24;
+    border: 1px solid #2e2e38;
+    color: #a8a8b3;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-ordem:hover {
+    border-color: #dfb14e;
+    color: #fff;
+    background-color: #25252e;
+}
+
+/* Efeito Glow Dourado para Categorias Super e Helicópteros */
+.premium-glow {
+    position: relative;
+    border: 1px solid rgba(223, 177, 78, 0.4) !important;
+    box-shadow: 0 0 12px rgba(223, 177, 78, 0.15);
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 8px rgba(223, 177, 78, 0.1);
+        border-color: rgba(223, 177, 78, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 16px rgba(223, 177, 78, 0.3);
+        border-color: rgba(223, 177, 78, 0.6);
+    }
+}

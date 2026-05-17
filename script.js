@@ -1,4 +1,6 @@
-// Lista de estoque da AutoPier Revendedora Premium (Preços zerados e categoria SUV adicionada)
+// ⚠️ CONFIGURAÇÃO DO SEU DISCORD: Link do seu Webhook oficial preservado abaixo
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1505523094175875132/bblXy3qVk4zAN5XmhuyjEzDt3tjrokYAlVKoqm5350LouxtDpr34nnxIRajQxUo7nqT_";
+
 const carros = [
     // ------------------ POPULARES ------------------
     { id: 1, nome: "VW Fusca", categoria: "Populares", preco: 50000, minima: 30000 },
@@ -51,7 +53,7 @@ const carros = [
     { id: 19, nome: "Honda NSX", categoria: "Super", preco: 8000000, minima: 6000000 },
     { id: 20, nome: "Audi R8", categoria: "Super", preco: 8000000, minima: 6000000 },
     { id: 21, nome: "McLaren 675 LT", categoria: "Super", preco: 5000000, minima: 3000000 },
-    { id: 22, nome: "Supra MK5", category: "Super", preco: 8000000, minima: 6000000 },
+    { id: 22, nome: "Supra MK5", categoria: "Super", preco: 8000000, minima: 6000000 },
     { id: 23, nome: "Porsche 911 GT3", categoria: "Super", preco: 10000000, minima: 8500000 },
     { id: 24, nome: "R35 Liberty Walk", categoria: "Super", preco: 13000000, minima: 10000000 },
     { id: 25, nome: "SVJ Lamborghini", categoria: "Super", preco: 6000000, minima: 5000000 },
@@ -64,53 +66,103 @@ const carros = [
     // ------------------ HELICÓPTEROS ------------------
     { id: 50, nome: "Helicóptero R44", categoria: "Helicópteros", preco: 0, minima: 0 },
     { id: 51, nome: "Helicóptero Deluxe", categoria: "Helicópteros", preco: 0, minima: 0 },
-    { id: 52, nome: "Helicóptero Volatus", categoria: "Helicópteros", preco: 0, minima: 0 }
+    { id: 52, nome: "Helicóptero Volatus", categoria: "Helicópteros", preco: 0, minima: 0 },
+
+    // ------------------ IMPORTADOS & ENCOMENDAS ------------------
+    { id: 100, nome: "📦 Encomenda Especial / Veículo Importado", categoria: "Importados", preco: 0, minima: 1 }
 ];
 
+let categoriaAtual = 'Todos';
+let estoqueExibido = [...carros];
 let carroSelecionado = null;
 
-// Função para renderizar os carros na tela
-function carregarCarros(listaFiltrada = carros) {
+// Função para renderizar os carros na tela com formatação bonita de pontos (ex: 1.000.000)
+function carregarCarros(listaFiltrada = estoqueExibido) {
     const vitrine = document.getElementById('vitrine-carros');
     vitrine.innerHTML = "";
 
     if (listaFiltrada.length === 0) {
-        vitrine.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #a8a8b3;">Nenhum veículo disponível nesta categoria no momento.</p>`;
+        vitrine.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #a8a8b3; padding: 20px;">Nenhum veículo encontrado.</p>`;
         return;
     }
 
     listaFiltrada.forEach(carro => {
+        // Aplica classe de brilho ouro/neon para Super, Helicópteros e Importados
+        const classeEspecial = (carro.categoria === 'Super' || carro.categoria === 'Helicópteros' || carro.categoria === 'Importados') ? 'card-carro premium-glow' : 'card-carro';
+        
+        // Exibe "Sob Consulta" se o preço for zero (caso das encomendas especiais)
+        const textoPreco = carro.preco === 0 ? "Sob Consulta (Faça sua Oferta)" : `R$ ${Math.floor(carro.preco).toLocaleString('pt-BR')}`;
+
         vitrine.innerHTML += `
-            <div class="card-carro">
+            <div class="${classeEspecial}">
                 <span class="categoria-tag">${carro.categoria}</span>
                 <h3>${carro.nome}</h3>
-                <p class="preco">R$ ${Math.floor(carro.preco)}</p>
+                <p class="preco">${textoPreco}</p>
                 <button class="btn-proposta" onclick="abrirModal(${carro.id})">Fazer Proposta</button>
             </div>
         `;
     });
 }
 
-// Filtrar por categoria
+// Filtrar por categoria clicada nos botões
 function filtrar(categoria) {
+    categoriaAtual = categoria;
     document.querySelectorAll('.btn-cat').forEach(btn => btn.classList.remove('ativo'));
-    if(event) {
+    
+    if(event && event.target.classList.contains('btn-cat')) {
         event.target.classList.add('ativo');
     }
 
-    if (categoria === 'Todos') {
-        carregarCarros(carros);
-    } else {
-        const filtrados = carros.filter(c => c.categoria === categoria);
-        carregarCarros(filtrados);
+    aplicarFiltrosEBusca();
+}
+
+// Monitora a digitação na barra de busca
+function filtrarPorTexto() {
+    aplicarFiltrosEBusca();
+}
+
+// Combina os filtros de categoria e busca por texto simultaneamente
+function aplicarFiltrosEBusca() {
+    const termo = document.getElementById('campo-busca').value.toLowerCase();
+    
+    let resultado = carros;
+    if (categoriaAtual !== 'Todos') {
+        resultado = resultado.filter(c => c.categoria === categoriaAtual);
     }
+    
+    if (termo.trim() !== "") {
+        resultado = resultado.filter(c => c.nome.toLowerCase().includes(termo));
+    }
+    
+    estoqueExibido = resultado;
+    carregarCarros(estoqueExibido);
+}
+
+// Ordenação de preços (Maior/Menor)
+function ordenarPreco(ordem) {
+    if (ordem === 'crescente') {
+        estoqueExibido.sort((a, b) => a.preco - b.preco);
+    } else {
+        estoqueExibido.sort((a, b) => b.preco - a.preco);
+    }
+    carregarCarros(estoqueExibido);
 }
 
 // Controle do Pop-up de Propostas
 function abrirModal(id) {
     carroSelecionado = carros.find(c => c.id === id);
     document.getElementById('modal-carro-nome').innerText = `Veículo: ${carroSelecionado.nome}`;
-    document.getElementById('modal-carro-preco').innerText = `Preço de Tabela: R$ ${Math.floor(carroSelecionado.preco)}`;
+    
+    const textoPreco = carroSelecionado.preco === 0 ? "Sob Consulta" : `R$ ${Math.floor(carroSelecionado.preco).toLocaleString('pt-BR')}`;
+    document.getElementById('modal-carro-preco').innerText = `Preço de Tabela: ${textoPreco}`;
+    
+    // Altera o placeholder dinamicamente se for uma encomenda personalizada
+    if(carroSelecionado.id === 100) {
+        document.getElementById('nome-jogador').placeholder = "Seu Nome/ID + Carro desejado (Ex: Passaporte 20 - BMW M3)";
+    } else {
+        document.getElementById('nome-jogador').placeholder = "Seu Nome ou Passaporte/ID";
+    }
+    
     document.getElementById('modal-proposta').style.display = 'flex';
 }
 
@@ -119,23 +171,52 @@ function fecharModal() {
     document.getElementById('form-proposta').reset();
 }
 
-// Enviar a proposta e receber resposta
+// Enviar a proposta e disparar o Webhook para o Discord
 function enviarProposta(event) {
     event.preventDefault();
     
     const jogador = document.getElementById('nome-jogador').value;
     const valor = Number(document.getElementById('valor-proposta').value);
-
-    // Formata o valor digitado como número inteiro na mensagem
-    const valorFormatado = Math.floor(valor);
+    const vendedor = document.getElementById('vendedor-select').value;
+    const valorFormatado = Math.floor(valor).toLocaleString('pt-BR');
 
     if (valor < carroSelecionado.minima) {
-        alert(`[AutoPier Premium] Olá ${jogador}, a gerência recusou sua oferta de R$ ${valorFormatado} pelo ${carroSelecionado.nome}. O valor está abaixo do limite aceitável para este veículo premium.`);
+        alert(`[AutoPier Premium] Olá ${jogador}, a gerência recusou sua oferta de R$ ${valorFormatado} pelo ${carroSelecionado.nome}. O valor está abaixo do limite aceitável.`);
     } else {
-        alert(`[AutoPier Premium] EXCELENTE NEGÓCIO, ${jogador}! Sua proposta de R$ ${valorFormatado} foi ACEITA! Entre em contato com a equipe no jogo para receber seu ${carroSelecionado.nome}.`);
+        alert(`[AutoPier Premium] EXCELENTE NEGÓCIO! Sua proposta de R$ ${valorFormatado} foi ENVIADA com sucesso! Verifique nosso Discord para concluir a retirada.`);
+        
+        // SISTEMA DE EMPREGOS RP - CALCULA 5% DE COMISSÃO PARA O VENDEDOR
+        const comissao = Math.floor(valor * 0.05).toLocaleString('pt-BR');
+        const txtVendedor = vendedor === "Nenhum" ? "❌ Venda direta pelo site (Sem vendedor)" : `👔 ${vendedor} (Comissão: R$ ${comissao})`;
+
+        // ENVIO AUTOMÁTICO PARA O DISCORD WEBHOOK (Correção na validação executada aqui)
+        if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL.trim() !== "") {
+            const dadosDiscord = {
+                embeds: [{
+                    title: carroSelecionado.id === 100 ? "📦 Nova Solicitação de Importado / Encomenda!" : "📥 Nova Proposta Aceita no Site!",
+                    color: carroSelecionado.id === 100 ? 3447003 : 14643534, // Azul para encomendas, Ouro para carros normais
+                    fields: [
+                        { name: "👤 Cliente / Detalhes", value: jogador, inline: false },
+                        { name: "🚘 Veículo Solicitado", value: carroSelecionado.nome, inline: true },
+                        { name: "🏷️ Categoria", value: carroSelecionado.categoria, inline: true },
+                        { name: "💰 Valor Ofertado", value: `R$ ${valorFormatado}`, inline: false },
+                        { name: "💼 Atendido por", value: txtVendedor, inline: false }
+                    ],
+                    footer: { text: "AutoPier Revendedora Premium | Sistema de Vendas RP" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dadosDiscord)
+            }).catch(err => console.log("Erro ao enviar para o Discord:", err));
+        }
+
         fecharModal();
     }
 }
 
-// Inicializar o site
+// Inicializar a vitrine ao carregar a página
 carregarCarros();

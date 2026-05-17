@@ -14,6 +14,14 @@
     </header>
 
     <main class="container">
+        <section class="controles-busca">
+            <input type="text" id="campo-busca" placeholder="🔍 Digite o nome do veículo..." oninput="filtrarPorTexto()">
+            <div class="filtros-preco">
+                <button onclick="ordenarPreco('crescente')" class="btn-ordem">💵 Menor Preço</button>
+                <button onclick="ordenarPreco('decrescente')" class="btn-ordem">💎 Maior Preço</button>
+            </div>
+        </section>
+
         <section class="categorias">
             <button onclick="filtrar('Todos')" class="btn-cat ativo">Todos</button>
             <button onclick="filtrar('Populares')" class="btn-cat">Populares</button>
@@ -23,6 +31,7 @@
             <button onclick="filtrar('Utilitários')" class="btn-cat">Utilitários</button>
             <button onclick="filtrar('SUVs')" class="btn-cat">SUVs</button>
             <button onclick="filtrar('Helicópteros')" class="btn-cat">Helicópteros</button>
+            <button onclick="filtrar('Importados')" class="btn-cat">💎 Importados</button>
         </section>
 
         <section class="vitrine" id="vitrine-carros">
@@ -37,14 +46,26 @@
             <p id="modal-carro-preco">Preço de Tabela: </p>
             
             <form id="form-proposta" onsubmit="enviarProposta(event)">
+                <label style="color:#a8a8b3; font-size:0.85rem; display:block; margin-bottom:5px;">Identificação do Comprador:</label>
                 <input type="text" id="nome-jogador" placeholder="Seu Nome ou Passaporte/ID" required>
+                
+                <label style="color:#a8a8b3; font-size:0.85rem; display:block; margin-bottom:5px; margin-top:10px;">Valor da sua Oferta ($):</label>
                 <input type="number" id="valor-proposta" placeholder="Digite o valor da sua proposta ($)" required>
-                <button type="submit" class="btn-enviar">Enviar Proposta ao Gerente</button>
+                
+                <label style="color:#a8a8b3; font-size:0.85rem; display:block; margin-bottom:5px; margin-top:10px;">Algum funcionário te atendeu?</label>
+                <select id="vendedor-select" style="width:100%; padding:12px; background:#1e1e24; border:1px solid #2e2e38; border-radius:6px; color:white; margin-bottom:15px; outline:none;">
+                    <option value="Nenhum">Não, estou comprando sozinho pelo site</option>
+                    <option value="CEO Paulo">Paulo (Fundador)</option>
+                    <option value="CO-CEO Cristopher">Cristopher (Sub Dono)</option>
+                    <option value="Vendedor Alexandre Pereira #13888 , ">Alexandre Pereira (Vendedor)</option>
+                    </select>
+
+                <button type="submit" class="btn-enviar">Enviar Proposta Oficial</button>
             </form>
 
-            <div style="text-align: center; margin-top: 15px;">
-                <p style="font-size: 0.85rem; color: #a8a8b3; margin-bottom: 5px;">Dúvidas ou Propostas Especiais?</p>
-                <a href="https://discord.gg/vY2E3654xR" target="_blank" style="color: #dfb14e; text-decoration: none; font-weight: bold; font-size: 0.9rem;">➡️ Abrir Ticket no Discord Oficial</a>
+            <div style="text-align: center; margin-top: 18px; border-top: 1px solid #2e2e38; padding-top: 12px;">
+                <p style="font-size: 0.85rem; color: #a8a8b3; margin-bottom: 5px;">Dúvidas ou Negociações Especiais?</p>
+                <a href="https://discord.gg/UURFfRKS7z" target="_blank" style="color: #dfb14e; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: inline-block;">➡️ Chamar no Discord Oficial</a>
             </div>
         </div>
     </div>
