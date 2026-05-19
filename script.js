@@ -12,62 +12,62 @@ const carros = [
     { id: 44, nome: "Volvo XC90", categoria: "Populares", preco: 2500000, minima: 2000000, estoque: 29 },
 
     // ------------------ ESPORTIVOS (Com controle de estoque) ------------------
-    { id: 2, nome: "Civic Type-R", categoria: "Esportivos", preco: 6000000, minima: 5000000, estoque: 1 },
+    { id: 2, nome: "Civic Type-R", categoria: "Esportivos", preco: 6000000, minima: 5000000, estoque: 1, imagem: "src/civic_type-r.png" },
     { id: 3, nome: "Mustang GT", categoria: "Esportivos", preco: 1000000, minima: 300000, estoque: 0 },
-    { id: 4, nome: "Audi RS5", categoria: "Esportivos", preco: 3000000, minima: 1500000, estoque: 0 },
-    { id: 5, nome: "Lancer Evo X", categoria: "Esportivos", preco: 5000000, minima: 4000000, estoque: 0 },
-    { id: 6, nome: "Audi RS6", categoria: "Esportivos", preco: 8000000, minima: 6000000, estoque: 0 },
-    { id: 7, nome: "BMW M4 BodyKit", categoria: "Esportivos", preco: 10000000, minima: 8000000, estoque: 0 },
-    { id: 8, nome: "Nissan 370Z", categoria: "Esportivos", preco: 8000000, minima: 7000000, estoque: 0 },
-    { id: 9, nome: "Subaru Impreza", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 3 },
-    { id: 10, nome: "Mazda RX7", categoria: "Esportivos", preco: 8000000, minima: 6000000, estoque: 0 },
-    { id: 11, nome: "Silvia S15", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 0 },
-    { id: 12, nome: "Skyline R34", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 8 },
+    { id: 4, nome: "Audi RS5", categoria: "Esportivos", preco: 3000000, minima: 1500000, estoque: 0, imagem: "src/audi_rs5.png" },
+    { id: 5, nome: "Lancer Evo X", categoria: "Esportivos", preco: 5000000, minima: 4000000, estoque: 0, imagem: "src/evo.png" },
+    { id: 6, nome: "Audi RS6", categoria: "Esportivos", preco: 8000000, minima: 6000000, estoque: 0, imagem: "src/audi_rs6.png" },
+    { id: 7, nome: "BMW M4 BodyKit", categoria: "Esportivos", preco: 10000000, minima: 8000000, estoque: 0, imagem: "src/bmw_m4.png" },
+    { id: 8, nome: "Nissan 370Z", categoria: "Esportivos", preco: 8000000, minima: 7000000, estoque: 0, imagem: "src/370z.png" },
+    { id: 9, nome: "Subaru Impreza", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 3, imagem: "src/subaru.png" },
+    { id: 10, nome: "Mazda RX7", categoria: "Esportivos", preco: 8000000, minima: 6000000, estoque: 0, imagem: "src/rx7.png" },
+    { id: 11, nome: "Silvia S15", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 0, imagem: "src/silvia_s15.png" },
+    { id: 12, nome: "Skyline R34", categoria: "Esportivos", preco: 13000000, minima: 10000000, estoque: 8, imagem: "src/r34.png" },
     { id: 45, nome: "BMW X6", categoria: "Esportivos", preco: 4000000, minima: 3000000, estoque: 11 },
     { id: 46, nome: "BMW i8", categoria: "Esportivos", preco: 5000000, minima: 4500000, estoque: 0 },
     { id: 47, nome: "Nissan GTR-R35", categoria: "Esportivos", preco: 10000000, minima: 8000000, estoque: 12 },
     { id: 48, nome: "Lamborghini Huracan", categoria: "Esportivos", preco: 10000000, minima: 8000000, estoque: 0 },
 
     // ------------------ MOTOS (Com controle de estoque) ------------------
-    { id: 30, nome: "BMW R1250", categoria: "Motos", preco: 14000000, minima: 13000000, estoque: 1 },
-    { id: 31, nome: "BMW S1000", categoria: "Motos", preco: 13000000, minima: 14000000, estoque: 0 },
+    { id: 30, nome: "BMW R1250", categoria: "Motos", preco: 14000000, minima: 13000000, estoque: 1, imagem: "src/r1250.png" },
+    { id: 31, nome: "BMW S1000", categoria: "Motos", preco: 13000000, minima: 14000000, estoque: 0, imagem: "src/s1000rr.png" },
     { id: 32, nome: "CB1000", categoria: "Motos", preco: 1000000, minima: 800000, estoque: 8 },
     { id: 33, nome: "XJ6", categoria: "Motos", preco: 500000, minima: 300000, estoque: 3 },
     { id: 34, nome: "Harley", categoria: "Motos", preco: 800000, minima: 500000, estoque: 5 },
     { id: 35, nome: "XT660", categoria: "Motos", preco: 170000, minima: 120000, estoque: 1 },
 
     // ------------------ UTILITÁRIOS (Com controle de estoque) ------------------
-    { id: 13, nome: "Amarok V6", categoria: "Utilitários", preco: 4000000, minima: 3000000, estoque: 0 },
-    { id: 36, nome: "Kombi", categoria: "Utilitários", preco: 27000000, minima: 25000000, estoque: 1 },
-    { id: 37, nome: "Brickade", categoria: "Utilitários", preco: 34000000, minima: 32000000, estoque: 0 },
-    { id: 38, nome: "Kuruma - Blindado", categoria: "Utilitários", preco: 30000000, minima: 28000000, estoque: 2 },
+    { id: 13, nome: "Amarok V6", categoria: "Utilitários", preco: 4000000, minima: 3000000, estoque: 0, imagem: "src/amarok_v6.png" },
+    { id: 36, nome: "Kombi", categoria: "Utilitários", preco: 27000000, minima: 25000000, estoque: 1, imagem: "src/kombi.png" },
+    { id: 37, nome: "Brickade", categoria: "Utilitários", preco: 34000000, minima: 32000000, estoque: 0, imagem: "src/brickade.png" },
+    { id: 38, nome: "Kuruma - Blindado", categoria: "Utilitários", preco: 30000000, minima: 28000000, estoque: 2, imagem: "src/kuruma_blindado.png" },
     { id: 53, nome: "Toyota Hilux", categoria: "Utilitários", preco: 4000000, minima: 3000000, estoque: 18 },
 
     // ------------------ SUVS (Com controle de estoque) ------------------
-    { id: 14, nome: "AMG G65", categoria: "SUVs", preco: 7000000, minima: 6000000, estoque: 0 },
-    { id: 15, nome: "Velar Range Rover", categoria: "SUVs", preco: 9000000, minima: 7500000, estoque: 1 },
-    { id: 16, nome: "Lamborghini Urus ", categoria: "SUVs", preco: 7000000, minima: 5000000, estoque: 0 },
+    { id: 14, nome: "AMG G65", categoria: "SUVs", preco: 7000000, minima: 6000000, estoque: 0, imagem: "src/amg_g65.png" },
+    { id: 15, nome: "Velar Range Rover", categoria: "SUVs", preco: 9000000, minima: 7500000, estoque: 1, imagem: "src/velar.png" },
+    { id: 16, nome: "Lamborghini Urus ", categoria: "SUVs", preco: 7000000, minima: 5000000, estoque: 0, imagem: "src/urus.png" },
 
     // ------------------ SUPER (Com controle de estoque) ------------------
-    { id: 17, nome: "Corvette Z06", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0 },
-    { id: 18, nome: "BMW M8", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0 },
-    { id: 19, nome: "Honda NSX", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 0 },
-    { id: 20, nome: "Audi R8", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 0 },
-    { id: 21, nome: "McLaren 675 LT", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0 },
-    { id: 22, nome: "Supra MK5", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 2 },
-    { id: 23, nome: "Porsche 911 GT3", categoria: "Super", preco: 10000000, minima: 8500000, estoque: 2 },
-    { id: 24, nome: "R35 Liberty Walk", categoria: "Super", preco: 13000000, minima: 10000000, estoque: 0 },
-    { id: 25, nome: "SVJ Lamborghini", categoria: "Super", preco: 6000000, minima: 5000000, estoque: 0 },
-    { id: 26, nome: "AMG GT63", categoria: "Super", preco: 14000000, minima: 12000000, estoque: 0 },
-    { id: 27, nome: "Bugatti Chiron", categoria: "Super", preco: 20000000, minima: 18000000, estoque: 2 },
-    { id: 28, nome: "Huracan STO", categoria: "Super", preco: 30000000, minima: 27000000, estoque: 2 },
-    { id: 29, nome: "AMG ONE", categoria: "Super", preco: 30000000, minima: 27000000, estoque: 2 },
+    { id: 17, nome: "Corvette Z06", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0, imagem: "src/corvette_z06.png" },
+    { id: 18, nome: "BMW M8", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0, imagem: "src/bmw_m8.png" },
+    { id: 19, nome: "Honda NSX", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 0, imagem: "src/nsx.png" },
+    { id: 20, nome: "Audi R8", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 0, imagem: "src/audi_r8.png" },
+    { id: 21, nome: "McLaren 675 LT", categoria: "Super", preco: 5000000, minima: 3000000, estoque: 0, imagem: "src/mclaren_675lt.png" },
+    { id: 22, nome: "Supra MK5", categoria: "Super", preco: 8000000, minima: 6000000, estoque: 2, imagem: "src/supra_mk5.png" },
+    { id: 23, nome: "Porsche 911 GT3", categoria: "Super", preco: 10000000, minima: 8500000, estoque: 2, imagem: "src/911_gt3.png" },
+    { id: 24, nome: "R35 Liberty Walk", categoria: "Super", preco: 13000000, minima: 10000000, estoque: 0, imagem: "src/r35_lbwk.png" },
+    { id: 25, nome: "SVJ Lamborghini", categoria: "Super", preco: 6000000, minima: 5000000, estoque: 0, imagem: "src/svj.png" },
+    { id: 26, nome: "AMG GT63", categoria: "Super", preco: 14000000, minima: 12000000, estoque: 0, imagem: "src/amg_gt63.png" },
+    { id: 27, nome: "Bugatti Chiron", categoria: "Super", preco: 20000000, minima: 18000000, estoque: 2, imagem: "src/chiron.png" },
+    { id: 28, nome: "Huracan STO", categoria: "Super", preco: 30000000, minima: 27000000, estoque: 2, imagem: "src/huracan_sto.png" },
+    { id: 29, nome: "AMG ONE", categoria: "Super", preco: 30000000, minima: 27000000, estoque: 2, imagem: "src/amg_one.png" },
     { id: 49, nome: "Ferrari Fxxk-Evo", categoria: "Super", preco: 18000000, minima: 16000000, estoque: 0 },
 
-    // ------------------ HELICÓPTEROS (Com controle de estoque) ------------------
-    { id: 50, nome: "Helicóptero R44", categoria: "Helicópteros", preco: 20000000, minima: 18000000, estoque: 0 },
-    { id: 51, nome: "Helicóptero Deluxe", categoria: "Helicópteros", preco: 26000000, minima: 24000000, estoque: 0 },
-    { id: 52, nome: "Helicóptero Volatus", categoria: "Helicópteros", preco: 35000000, minima: 32000000, estoque: 0 },
+    // ------------------ HELICÓPTEROS (Com controle de estoque) -----------------
+    { id: 50, nome: "Helicóptero R44", categoria: "Helicópteros", preco: 20000000, minima: 18000000, estoque: 0, imagem: "src/baratinha.png" },
+    { id: 51, nome: "Helicóptero Deluxe", categoria: "Helicópteros", preco: 26000000, minima: 24000000, estoque: 0, imagem: "src/deluxe.png" },
+    { id: 52, nome: "Helicóptero Volatus", categoria: "Helicópteros", preco: 35000000, minima: 32000000, estoque: 0, imagem: "src/volatus.png" },
 
     // ------------------ IMPORTADOS & ENCOMENDAS (Estoque aberto) ------------------
     { id: 100, nome: "📦 Encomenda Especial / Veículo Importado", categoria: "Importados", preco: 3000000, minima: 3000000, estoque: 999 }
@@ -102,10 +102,14 @@ function carregarCarros(listaFiltrada = estoqueExibido) {
         } else if (carro.estoque === 1) {
             textoEstoque = `<p style="font-size: 0.8rem; color: #dfb14e; margin: 5px 0; font-weight: bold;">⚠️ ÚLTIMA UNIDADE NO SHOWROOM!</p>`;
         }
+         const imagemHTML = carro.imagem
+            ? `<img src="${carro.imagem}" alt="${carro.nome}" style="width: 100%; height: 240px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; margin-top: 10px;" onerror="this.style.display='none'">`
+            : '';
 
         vitrine.innerHTML += `
             <div class="${classeEspecial}">
                 <span class="categoria-tag">${carro.categoria}</span>
+                ${imagemHTML}
                 <h3>${carro.nome}</h3>
                 ${textoEstoque}
                 <p class="preco">${textoPreco}</p>
